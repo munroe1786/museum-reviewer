@@ -11,7 +11,7 @@ gem 'rails_12factor'
 gem 'foreman'
 
 group :development do
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'shotgun'
   gem 'pry'
   gem 'tux'
