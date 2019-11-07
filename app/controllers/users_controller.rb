@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
+  get "/users/signup" do
+    erb :"/users/signup.html"
   end
 
   # GET: /users/new
