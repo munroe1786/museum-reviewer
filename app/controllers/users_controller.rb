@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
 
-  # GET: /users
   get "/users/signup" do
     erb :"/users/signup.html"
   end
 
-  # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
-  end
+  post "/users/signup" do
+    user = User.new(:username => params[:username], :email => params[:email], password => params[:password])
 
-  # POST: /users
-  post "/users" do
-    redirect "/users"
+    if user.save
+      redirect "/sessions/login"
+    else
+      redirect "/users/failure"
   end
 
   # GET: /users/5
@@ -33,5 +31,9 @@ class UsersController < ApplicationController
   # DELETE: /users/5/delete
   delete "/users/:id/delete" do
     redirect "/users"
+  end
+
+  get "/users/failure" do
+    
   end
 end
