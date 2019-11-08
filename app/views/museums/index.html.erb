@@ -1,26 +1,9 @@
-<h2>Choose a museum from the list to review or add a new one below.</h2>
+<h1>All Museums</h1>
 
-<form method="GET" action="/museums/new">
-<p>
 <label>Museums:</label><br>
 <% @museums.each do |museum| %>
-    <input type="checkbox" name="museums" value="<%= museum.id %>" id="museum_<%= museum.id %>">
+    <p>
     <%= museum.name %>,
     <%= museum.location %>
-    <br>
+    </p>
 <% end %><br>
-</p>
-
-<p>
- <a href="/reviews/new"><input type="button" value="Write a Review"></a>
-</p> 
-<p>
-<h2>Or create a new museum:</h2>
-<label>Name:</label><input type="text" name="museum[name]" id="new_museum">
-<label>Location:</label><input type="text" name="museum[location]" id="new_museum">
-</p>
-
-<input type="submit" value="Create New Museum">
-
-</form>
-

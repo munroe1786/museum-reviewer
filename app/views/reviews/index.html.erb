@@ -2,8 +2,12 @@
 
 <label>Reviews:</label><br>
 <% @reviews.each do |review| %>
-    <%= review.title %>,
-    <%= review.date_visited %>
-    <%= review.content %>
+    <p><%= review.title %></p>
+    <p><%= review.date_visited %></p>
+    <p><%= review.content %></p>
     <br>
 <% end %><br>
+
+<p>
+ <a href="/reviews/new"><input type="button" value="Write a Review"></a>
+</p>
