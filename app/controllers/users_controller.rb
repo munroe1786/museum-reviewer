@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-  get "/signup" do
-    erb :"/users/signup.html"
+  get "/users/new" do
+    erb :"/users/new.html"
   end
 
-  post "/signup" do
+  post "/users/new" do
     user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation])
     session[:user_id] = user.id 
     if user.save
