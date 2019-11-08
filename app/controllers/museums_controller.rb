@@ -3,4 +3,8 @@ class MuseumsController < ApplicationController
         @museum = Museum.all 
         erb :'/museums/index.html'
     end
+
+    post '/museums' do
+        
+    end
 end
