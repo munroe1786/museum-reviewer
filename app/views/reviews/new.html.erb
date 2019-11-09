@@ -5,7 +5,7 @@
         <label>Choose an existing museum:</label>
 
     <% @museums.all.each do |museum| %>
-        <input type="radio" name="review[museum_id]" id="<%=museum.id %>" value="<%= museum.id %>"> <%= museum.name %></input>
+        <input type="radio" name="review[museum_id]" id="<%= museum.id %>" value="<%= museum.id %>"> <%= museum.name %></input>
     <% end %>
     </p>
     <p>

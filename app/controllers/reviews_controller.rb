@@ -10,8 +10,7 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-      @review = Review.create(params["review"])
-      @review.museum = Museum.create(name: params["museum"]["name"]["location"])
+      @review = Review.create(params[:review])
       @review.save
       redirect to "reviews/#{@review.id}"
     end
