@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   end
 
   post "/users/new" do
-    user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation])
+    user = User.create(:username => params[:username], :password => params[:password], :password_confirmation => params[:password_confirmation])
     session[:user_id] = user.id 
     if user.save
-      redirect '/login'
+      redirect '/sessions/login'
     else
       redirect '/failure'
     end

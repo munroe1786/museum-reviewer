@@ -1,5 +1,5 @@
 museums_list = {
-    "Museume of Modern Art" => {
+    "Museum of Modern Art" => {
       :location => "New York, NY"
     },
     "Metropolitan Museum of Art" => {
@@ -8,7 +8,7 @@ museums_list = {
     "Louvre Museum" => {
       :location => "Paris, France"
     },
-    "Prado Museume" => {
+    "Prado Museum" => {
       :location => "Madrid, Spain"
     },
     "High Museum" => {
@@ -17,7 +17,7 @@ museums_list = {
     "The Dali (Salvador Dali Museum)" => {
       :location => "St. Petersburg, FL"
     },
-    "La Luz de Jesus" => {
+    "La Luz de Jesus Gallery" => {
       :location => "Los Angeles, CA"
     },
     "Los Angeles County Museum of Art" => {
