@@ -1,4 +1,4 @@
-class CreateReviewPages < ActiveRecord::Migration
+class CreateReviewpages < ActiveRecord::Migration
   def change
     create_table :reviewpages do |t|
       t.string :museum_name

@@ -1,4 +1,4 @@
-class ReviewPage < ActiveRecord::Base
+class Reviewpage < ActiveRecord::Base
     belongs_to :user
     has_many :comments
 
