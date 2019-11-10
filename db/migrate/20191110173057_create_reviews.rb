@@ -1,6 +1,6 @@
-class CreateReviews < ActiveRecord::Migration
+class CreateReviewPages < ActiveRecord::Migration
   def change
-    create_table :reviews do |t|
+    create_table :reviewpages do |t|
       t.string :museum_name
       t.string :location
       t.string :date_visited

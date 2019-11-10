@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ReviewPagesController < ApplicationController
     get '/reviews' do
       @reviews = Review.all 
       erb :'/reviews/index.html'
