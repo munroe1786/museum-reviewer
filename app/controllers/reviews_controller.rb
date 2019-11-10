@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-      @review = Review.create(museum_id: params[:museum_id], title: params[:title], date_visited: params[:date_visited], content: params[:content])
+      @review = Review.create(museum_id: params[:review][:museum_id], title: params[:review][:title], date_visited: params[:review][:date_visited], content: params[:review][:content])
       @review.save
       redirect to "reviews/#{@review.id}"
     end
