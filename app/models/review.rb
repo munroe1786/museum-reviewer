@@ -1,4 +1,9 @@
 class Review < ActiveRecord::Base
     belongs_to :user
-    belongs_to :museum
+    has_many :comments
+
+    validates :museum_name, presence: true
+    validates :location, presence: true
+    validates :date_visited, presence: true
+    validates :content, presence: true
 end
