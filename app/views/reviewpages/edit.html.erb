@@ -1,6 +1,5 @@
 <h1>Edit Review</h1>
-<a href="/reviewpages/<%= @reviewpage.id %>/edit">Reload</a>
-<form method="POST" action="/reviewpages/<%= @reviewpage.id %>">
+<form method="post" action="/reviewpages/<%= @reviewpage.id %>">
     <input type="hidden" name="_method" value="patch" />
     <p>
         <label for="museum_name" style="display: block;">Museum Name:</label>
@@ -18,5 +17,5 @@
         <label for="content" style="display: block;">Content:</label>
         <textarea rows="5" cols="30" name="content"><%= @reviewpage.content %></textarea>
     </p>
-    <input type="submit" value="Update Post" />
+    <input type="submit" value="Update Review" />
 </form>
