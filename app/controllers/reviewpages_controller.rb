@@ -1,6 +1,6 @@
 class ReviewpagesController < ApplicationController
     get '/reviewpages' do
-      @reviewpages = Reviewpage.all
+      @reviewpages = Reviewpage.visible
       erb :'reviewpages/index.html'
     end
 
@@ -25,15 +25,21 @@ class ReviewpagesController < ApplicationController
     end
 
     patch '/reviewpages/:id' do
-      "Hello World"
-      #@reviewpage = Reviewpage.find_by_id(params[:id])
-      #redirect "/reviewpages" unless @reviewpage
-      #if @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited:        params[:date_visited], content: params[:content])
-        #redirect "/reviewpages/#{@reviewpage.id}"
-      #else
-        #@error = "Unable to save review due to the following error(s): #{@reviewpage.errors.full_messages.to_sentence}"
-        #erb :"reviewpages/edit.html"
-      #end
+      @reviewpage = Reviewpage.find_by_id(params[:id])
+      redirect "/reviewpages" unless @reviewpage
+      if @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+        redirect "/reviewpages/#{@reviewpage.id}"
+      else
+        @error = "Unable to save review due to the following error(s): #{@reviewpage.errors.full_messages.to_sentence}"
+        erb :"reviewpages/edit.html"
+      end
+    end
+
+    delete '/reviewpages/:id' do
+      @reviewpage = Reviewpage.find_by_id(params[:id])
+      redirect "/reviewpages" unless @reviewpage
+      @reviewpage.update(deleted: true)
+      redirect "/reviewpages"
     end
 
 end

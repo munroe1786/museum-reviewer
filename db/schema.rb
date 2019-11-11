@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20191110182152) do
     t.string   "location"
     t.string   "date_visited"
     t.string   "content"
+    t.boolean  "deleted",      default: false
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

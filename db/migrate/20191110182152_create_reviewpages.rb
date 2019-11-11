@@ -5,6 +5,7 @@ class CreateReviewpages < ActiveRecord::Migration
       t.string :location
       t.string :date_visited
       t.string :content
+      t.boolean :deleted, default: false
       t.integer :user_id, foreign_key: true
       t.timestamps null: false
     end

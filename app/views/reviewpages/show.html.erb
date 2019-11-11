@@ -2,9 +2,12 @@
 <p><%= @reviewpage.location %></p>
 <p><%= @reviewpage.date_visited %></p>
 <p><%= @reviewpage.content %></p>
-
-
 <p>
  <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
 </p>
+<form method="post" action="/reviewpages/<%= @reviewpage.id %>">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Delete Review" />
+</form>
+
 
