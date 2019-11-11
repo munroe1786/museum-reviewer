@@ -3,8 +3,7 @@
 <label>Reviews:</label><br>
 <ul>
 <% @reviewpages.all.each do |reviewpage| %>
-    <li><a href='/reviewpages/<%= reviewpage.id %>'><%= reviewpage.museum_name %></a></li>
-    
+    <li><a href="/reviewpages/<%= reviewpage.id %>"><%= reviewpage.museum_name %></a></li>
 <% end %>
 </ul>
 

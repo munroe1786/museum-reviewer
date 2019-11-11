@@ -1,0 +1,22 @@
+<h1>Edit Review</h1>
+<a href="/reviewpages/<%= @reviewpage.id %>/edit">Reload</a>
+<form method="POST" action="/reviewpages/<%= @reviewpage.id %>">
+    <input type="hidden" name="_method" value="patch" />
+    <p>
+        <label for="museum_name" style="display: block;">Museum Name:</label>
+        <input type="text" name="museum_name" value="<%= @reviewpage.museum_name %>" />
+    </p>
+    <p>
+        <label for="location" style="display: block;">Location:</label>
+        <input type="text" name="location" value="<%= @reviewpage.location %>" />
+    </p>
+    <p>
+        <label for="date_visited" style="display: block;">Date Visited:</label>
+        <input type="text" name="date_visited" value="<%= @reviewpage.date_visited %>" />
+    </p>
+    <p>
+        <label for="content" style="display: block;">Content:</label>
+        <textarea rows="5" cols="30" name="content"><%= @reviewpage.content %></textarea>
+    </p>
+    <input type="submit" value="Update Post" />
+</form>

@@ -1,30 +1,21 @@
 <h1>Create a new Review</h1>
 
-<form method='POST' action='/reviewpages'>
+<form method='post' action='/reviewpages'>
     <p>
         <label>Museum Name:</label>
-    </p>
-    <p>
-        <input type='text' name='reviewpage[museum_name]' id='reviewpage_museum_name'/>
+        <input type='text' name='museum_name' id='museum_name'/>
     </p>
     <p>
         <label>Location:</label>
-    </p>
-    <p>
-        <input type='text' name='reviewpage[location]' id='reviewpage_location'/>
+        <input type='text' name='location' id='location'/>
     </p>
     <p>
         <label>Date Visited:</label>
-    </p>
-    <p>
-        <input type='text' name='reviewpage[date_visited]' 
-        id='reviewpage_date_visited'/>
+        <input type='text' name='date_visited' id='date_visited'/>
     </p>
     <p>
         <label>Content:</label>
-    </p>
-    <p>
-        <textarea rows="5" cols="30" name='reviewpage[content]' id='reviewpage_content'/></textarea>
+        <textarea rows="5" cols="30" name='content' id='content'></textarea>
     </p>
 
     <p>
