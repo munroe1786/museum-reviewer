@@ -1,13 +1,13 @@
 <h1>All Reviews</h1>
 
 <label>Reviews:</label><br>
-<% @reviews.each do |review| %>
-    <p><%= review.title %></p>
-    <p><%= review.date_visited %></p>
-    <p><%= review.content %></p>
-    <br>
-<% end %><br>
+<ul>
+<% @reviewpages.all.each do |reviewpage| %>
+    <li><a href='/reviewpages/<%= reviewpage.id %>'><%= reviewpage.museum_name %></a></li>
+    
+<% end %>
+</ul>
 
 <p>
- <a href="/reviews/new"><input type="button" value="Write a Review"></a>
+ <a href="/reviewpages/new"><input type="button" value="Write a Review"></a>
 </p>

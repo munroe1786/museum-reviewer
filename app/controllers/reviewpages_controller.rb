@@ -1,25 +1,24 @@
 class ReviewpagesController < ApplicationController
-    get '/reviews' do
-      @reviews = Review.all 
-      erb :'/reviews/index.html'
+    get '/reviewpages' do
+      @reviewpages = Reviewpage.all
+      erb :'/reviewpages/index.html'
     end
 
-    get '/reviews/new' do
-      @museums = Museum.all
-      erb :'/reviews/new.html'
+    get '/reviewpages/new' do
+      erb :'/reviewpages/new.html'
     end
 
-    get '/reviews/:id' do
-      erb :'/reviews/show.html'
+    get '/reviewpages/:id' do
+      @reviewpage = Reviewpage.find(params[:id])
+      erb :'/reviewpages/show.html'
     end
 
-    post '/reviews' do
-      @review = Review.create(museum_id: params[:review][:museum_id], title: params[:review][:title], date_visited: params[:review][:date_visited], content: params[:review][:content])
-      @review.save
-      redirect to "reviews/#{@review.id}"
+    post '/reviewpages' do
+      @reviewpage = Reviewpage.create(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+      #@reviewpage.save
+      #binding.pry
+      #redirect "reviewpages/#{@reviewpage.id}"
+      redirect "/reviewpages"
     end
 
-    get '/reviews/:id' do
-      erb :'/reviews/show.html'
-    end
 end

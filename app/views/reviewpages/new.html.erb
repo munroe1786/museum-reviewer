@@ -1,33 +1,30 @@
 <h1>Create a new Review</h1>
 
-<form action='/reviews' method='POST'>
+<form method='POST' action='/reviewpages'>
     <p>
-        <label>Choose an existing museum:</label>
-
-    <% @museums.all.each do |museum| %>
-        <input type="radio" name="review[museum_id]" id="<%= museum.id %>" value="<%= museum.id %>"/> 
-        <label for="<%= museum.id %>"><%= museum.name %></label>
-    <% end %>
-    </p>
-    
-    <p>
-        <label>Title:</label>
+        <label>Museum Name:</label>
     </p>
     <p>
-        <input type='text' name='review[title]' id='review_title'>
+        <input type='text' name='reviewpage[museum_name]' id='reviewpage_museum_name'/>
+    </p>
+    <p>
+        <label>Location:</label>
+    </p>
+    <p>
+        <input type='text' name='reviewpage[location]' id='reviewpage_location'/>
     </p>
     <p>
         <label>Date Visited:</label>
     </p>
     <p>
-        <input type='text' name='review[date_visited]' 
-        id='review_date_visited'>
+        <input type='text' name='reviewpage[date_visited]' 
+        id='reviewpage_date_visited'/>
     </p>
     <p>
         <label>Content:</label>
     </p>
     <p>
-        <input type='text' name='review[content]' id='review_content'>
+        <textarea rows="5" cols="30" name='reviewpage[content]' id='reviewpage_content'/></textarea>
     </p>
 
     <p>
