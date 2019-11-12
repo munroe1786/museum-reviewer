@@ -26,4 +26,14 @@ class ApplicationController < Sinatra::Base
     def redirect_if_not_logged_in
       redirect "/sessions/login" unless logged_in?
     end
+
+    def authorize_user_for(record)
+      if !record
+        flash[:error] = "Record not found"
+        redirect request.referrer || "/" 
+      elsif current_user != record.user
+        flash[:error] = "You don't have permission to edit this review"
+      end
+    end
+
 end

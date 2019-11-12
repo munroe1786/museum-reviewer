@@ -5,7 +5,7 @@
 <section class="comments" style="padding-left: 5%">
     <% @reviewpage.comments.each do |comment| %>
         <div>
-        <h3>Comments:</h3>
+        <h3>Comment:</h3>
         <h3><%= comment.content %></h3>
         </div>
     <% end %>
@@ -18,7 +18,9 @@
         </p>
     </form>
 </section>
-
+<p>
+ <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
+</p>
 <p>
  <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
 </p>

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20191110182152) do
     t.integer  "reviewpage_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
   create_table "reviewpages", force: :cascade do |t|

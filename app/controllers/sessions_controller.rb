@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(:username => params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
+            flash[:success] = "Successfully logged in"
             redirect '/reviewpages'
         else
             redirect '/sessions/login'

@@ -14,19 +14,20 @@ class ReviewpagesController < ApplicationController
     end
 
     post '/reviewpages' do
-      redirect_if_not_logged_in
-      @reviewpage = Reviewpage.create(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+      @reviewpage = current_user.reviewpages.create(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
       redirect "/reviewpages/#{@reviewpage.id}"
     end
 
     get '/reviewpages/:id/edit' do
-      @reviewpage = Reviewpage.find(params[:id])
+      @reviewpage = Reviewpage.find_by_id(params[:id])
+      authorize_user_for(@reviewpage)
       erb :"reviewpages/edit.html"
     end
 
     patch '/reviewpages/:id' do
       @reviewpage = Reviewpage.find_by_id(params[:id])
       redirect "/reviewpages" unless @reviewpage
+      authorize_user_for(@reviewpage)
       if @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
         redirect "/reviewpages/#{@reviewpage.id}"
       else
