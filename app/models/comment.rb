@@ -1,7 +1,4 @@
 class Comment < ActiveRecord::Base
-    belongs_to :users
-    belongs_to :reviewpages
-
-    
+    belongs_to :reviewpage
     validates :content, presence: true
 end

@@ -1,13 +1,37 @@
 <h1><%= @reviewpage.museum_name %></h1>
 <p><%= @reviewpage.location %></p>
-<p><%= @reviewpage.date_visited %></p>
-<p><%= @reviewpage.content %></p>
+<p>Date of visit: <%= @reviewpage.date_visited %></p>
+<p>Review: <%= @reviewpage.content %></p>
+<section class="comments" style="padding-left: 5%">
+    <% @reviewpage.comments.each do |comment| %>
+        <div>
+        <h3>Comments:</h3>
+        <h3><%= comment.content %></h3>
+        </div>
+    <% end %>
+    <form method="post" action="/reviewpages/<%= @reviewpage.id %>/comments">
+        <p>
+            Comment: <textarea name="content"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Add Comment" />
+        </p>
+    </form>
+</section>
+
 <p>
  <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
 </p>
+<p>
 <form method="post" action="/reviewpages/<%= @reviewpage.id %>">
     <input type="hidden" name="_method" value="delete" />
     <input type="submit" value="Delete Review" />
 </form>
+</p>
+<p>
+ <a href="/reviewpages"><input type="button" value="All Reviews"></a>
+</p>
+
+
 
 

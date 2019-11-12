@@ -10,3 +10,4 @@ run ApplicationController
 use UsersController
 use ReviewpagesController
 use SessionsController
+use CommentsController
