@@ -17,23 +17,38 @@
             <input type="submit" value="Add Comment" />
         </p>
     </form>
+    <p>
+        <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Comment"></a>
+    </p>
+
+
+    <p>
+    <% @reviewpage.comments.each do |comment| %>
+        <%= comment.content %>
+        <form method="post" action="/reviewpages/<%= @reviewpage.id %>/comments/<%= comment.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Delete Comment" />
+        </form>
+    <% end %>
+    </p>
+
 </section>
+
 <p>
- <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
+    <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
 </p>
 <p>
- <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Review"></a>
+    <form method="post" action="/reviewpages/<%= @reviewpage.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Delete Review" />
+    </form>
 </p>
 <p>
-<form method="post" action="/reviewpages/<%= @reviewpage.id %>">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Delete Review" />
-</form>
+    <a href="/reviewpages"><input type="button" value="All Reviews"></a>
 </p>
 <p>
- <a href="/reviewpages"><input type="button" value="All Reviews"></a>
+    <form method='get' action='/logout'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+    </form>
 </p>
-
-
-
-

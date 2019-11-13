@@ -24,7 +24,10 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_logged_in
-      redirect "/sessions/login" unless logged_in?
+      unless logged_in?
+        flash[:error] = "You must be logged in to do that"
+        redirect "/sessions/login" 
+      end
     end
 
     def authorize_user_for(record)
@@ -33,6 +36,7 @@ class ApplicationController < Sinatra::Base
         redirect request.referrer || "/" 
       elsif current_user != record.user
         flash[:error] = "You don't have permission to edit this review"
+        redirect "/"
       end
     end
 

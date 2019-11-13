@@ -7,12 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>MuseumReviewer</title>
-    <style>
-      .error { color: red;}
-      .success { color: green;}
-      .warning { color: orange;}
-    </style>
+    <title>MuseumReviewer - <%= @page_title %></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -20,6 +15,16 @@
   </head>
   <body>
     <div class="wrapper">
+
+    <%= styled_flash %>
+    <div style="color: red; padding-top: 20px">
+      <%= @error %>
+    </div>
+    <style>
+      .error { color: red;}
+      .success { color: green;}
+      .warning { color: orange;}
+    </style>
 
         <%= yield %>
 

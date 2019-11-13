@@ -1,24 +1,33 @@
 <h1>Create a new Review</h1>
-
-<form method='post' action='/reviewpages'>
-    <p>
-        <label>Museum Name:</label>
-        <input type='text' name='museum_name' id='museum_name'/>
-    </p>
-    <p>
-        <label>Location:</label>
-        <input type='text' name='location' id='location'/>
-    </p>
-    <p>
-        <label>Date Visited:</label>
-        <input type='text' name='date_visited' id='date_visited'/>
-    </p>
-    <p>
-        <label>Content:</label>
-        <textarea rows="5" cols="30" name='content' id='content'></textarea>
-    </p>
-
-    <p>
-        <input type='submit' value='Create Review'>
-    </p>
-</form>
+<p>
+    <form method='post' action='/reviewpages'>
+        <p>
+            <label>Museum Name:</label>
+            <input type='text' name='museum_name' id='museum_name'/>
+        </p>
+        <p>
+            <label>Location:</label>
+            <input type='text' name='location' id='location'/>
+        </p>
+        <p>
+            <label>Date Visited:</label>
+            <input type='text' name='date_visited' id='date_visited'/>
+        </p>
+        <p>
+            <label>Content:</label>
+            <textarea rows="5" cols="30" name='content' id='content'></textarea>
+        </p>
+        <p>
+            <input type='submit' value='Create Review'>
+        </p>
+    </form>
+</p>
+<p>
+    <a href="/reviewpages"><input type="button" value="All Reviews"></a>
+</p>
+<p>
+    <form method='get' action='/logout'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+    </form>
+</p>

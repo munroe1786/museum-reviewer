@@ -19,3 +19,15 @@
     </p>
     <input type="submit" value="Update Review" />
 </form>
+
+<h1>Edit Comment</h1>
+<form method="post" action="/reviewpages/<%= @reviewpage.id %>/comments/<%= @comment.id %>">
+    <input type="hidden" name="_method" value="patch" />
+    <p>
+        <label for="content" style="display: block;">Comment:</label>
+        <textarea rows="5" cols="30" name="comment[content]" id="<%= @comment.id %>"</textarea>
+    </p>
+    <p>
+        <input type="submit" value="Update Comment" />
+    </p>
+</form>

@@ -14,13 +14,17 @@ class ReviewpagesController < ApplicationController
     end
 
     post '/reviewpages' do
+      redirect_if_not_logged_in
       @reviewpage = current_user.reviewpages.create(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+      flash[:success] = "Review created successfully"
       redirect "/reviewpages/#{@reviewpage.id}"
     end
 
     get '/reviewpages/:id/edit' do
+      redirect_if_not_logged_in
       @reviewpage = Reviewpage.find_by_id(params[:id])
       authorize_user_for(@reviewpage)
+      @page_title = "Edit #{@reviewpage.museum_name}"
       erb :"reviewpages/edit.html"
     end
 
@@ -29,6 +33,7 @@ class ReviewpagesController < ApplicationController
       redirect "/reviewpages" unless @reviewpage
       authorize_user_for(@reviewpage)
       if @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+        flash[:success] = "Review edited successfully"
         redirect "/reviewpages/#{@reviewpage.id}"
       else
         @error = "Unable to save review due to the following error(s): #{@reviewpage.errors.full_messages.to_sentence}"
@@ -40,6 +45,7 @@ class ReviewpagesController < ApplicationController
       @reviewpage = Reviewpage.find_by_id(params[:id])
       redirect "/reviewpages" unless @reviewpage
       @reviewpage.update(deleted: true)
+      flash[:success] = "Review deleted successfully"
       redirect "/reviewpages"
     end
 
