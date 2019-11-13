@@ -24,7 +24,6 @@ class ReviewpagesController < ApplicationController
       redirect_if_not_logged_in
       @reviewpage = Reviewpage.find_by_id(params[:id])
       authorize_user_for(@reviewpage)
-      @page_title = "Edit #{@reviewpage.museum_name}"
       erb :"reviewpages/edit.html"
     end
 
