@@ -1,6 +1,6 @@
 <h1><%= @reviewpage.museum_name %></h1>
 <p><%= @reviewpage.location %></p>
-<p>Date of visit: <%= @reviewpage.date_visited %></p>
+<p>Visited on: <%= @reviewpage.date_visited %></p>
 <p>Review: <%= @reviewpage.content %></p>
 <section class="comments" style="padding-left: 5%">
     <% @reviewpage.comments.each do |comment| %>
@@ -20,7 +20,6 @@
     <p>
         <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Comment"></a>
     </p>
-
 
     <p>
     <% @reviewpage.comments.each do |comment| %>

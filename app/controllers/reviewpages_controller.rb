@@ -44,6 +44,7 @@ class ReviewpagesController < ApplicationController
     delete '/reviewpages/:id' do
       @reviewpage = Reviewpage.find_by_id(params[:id])
       redirect "/reviewpages" unless @reviewpage
+      authorize_user_for(@reviewpage)
       @reviewpage.update(deleted: true)
       flash[:success] = "Review deleted successfully"
       redirect "/reviewpages"

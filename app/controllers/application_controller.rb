@@ -35,8 +35,8 @@ class ApplicationController < Sinatra::Base
         flash[:error] = "Record not found"
         redirect request.referrer || "/" 
       elsif current_user != record.user
-        flash[:error] = "You don't have permission to edit this review"
-        redirect "/"
+        flash[:error] = "You don't have permission to edit this item"
+        redirect "/reviewpages"
       end
     end
 
