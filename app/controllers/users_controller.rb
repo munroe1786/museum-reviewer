@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:success] = "You have successfully signed up, please login below"
       redirect '/sessions/login'
     else
-      flash[:error] = "Unable to complete signup"
+      flash[:error] = "Unable to complete signup--needs to be a unique username. Be sure all fields are filled out"
       #flash[:error] = "Unable to save review due to the following error(s):{@reviewpage.errors.full_messages.to_sentence}"
       redirect '/'
     end

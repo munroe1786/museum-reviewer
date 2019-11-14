@@ -19,13 +19,3 @@
     </p>
     <input type="submit" value="Update Review" />
 </form>
-
-<% @reviewpage.comments.each do |comment| %>
-    <%= comment.content %>
-        <form method="post" action="/reviewpages/<%= @reviewpage.id %>/comments/<%= @comment.id %>">
-                <input type="hidden" name="_method" value="patch" />
-            <p>
-                <input type="submit" value="Update Comment" />
-            </p>
-        </form>
-<% end %>

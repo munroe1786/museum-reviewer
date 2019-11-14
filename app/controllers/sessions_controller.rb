@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
             flash[:success] = "Successfully logged in"
             redirect '/reviewpages'
         else
-            flash[:error] = "Please enter the correct username and password"
+            flash[:error] = "Please enter the correct username and password. Be sure all fields are filled out."
             redirect '/sessions/login'
         end
     end

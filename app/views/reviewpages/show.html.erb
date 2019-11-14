@@ -3,12 +3,7 @@
 <p>Visited on: <%= @reviewpage.date_visited %></p>
 <p>Review: <%= @reviewpage.content %></p>
 <section class="comments" style="padding-left: 5%">
-    <% @reviewpage.comments.each do |comment| %>
-        <div>
-        <h3>Comment:</h3>
-        <h3><%= comment.content %></h3>
-        </div>
-    <% end %>
+
     <form method="post" action="/reviewpages/<%= @reviewpage.id %>/comments">
         <p>
             Comment: <textarea name="content"></textarea>
@@ -17,9 +12,6 @@
             <input type="submit" value="Add Comment" />
         </p>
     </form>
-    <p>
-        <a href="/reviewpages/<%= @reviewpage.id %>/edit"><input type="button" value="Edit Comment"></a>
-    </p>
 
     <p>
     <% @reviewpage.comments.each do |comment| %>
@@ -28,6 +20,7 @@
             <input type="hidden" name="_method" value="delete" />
             <input type="submit" value="Delete Comment" />
         </form>
+        <a href="/reviewpages/<%= @reviewpage.id %>/comments/<%= comment.id %>/edit"><input type="button" value="Edit Comment"></a>
     <% end %>
     </p>
 
