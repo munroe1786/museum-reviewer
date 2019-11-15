@@ -53,7 +53,18 @@ Specs:
     
     Confirm
 
-    You have a large number of small Git commits
-    Your commit messages are meaningful
-    You made the changes in a commit that relate to the commit message
-    You don't include changes in a commit that aren't related to the commit message
+   X  You have a large number of small Git commits
+    
+          I will have 42 commits at the end of the project.  They could be smaller and I will work on that.
+    
+   X  Your commit messages are meaningful
+
+          The messages I added described the changes.
+
+   X  You made the changes in a commit that relate to the commit message
+
+          The commit messages were about the changes in that commit.
+
+   X  You don't include changes in a commit that aren't related to the commit message
+
+          The commit messages described only the changes in that commit.
