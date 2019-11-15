@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   get '/reviewpages/:reviewpage_id/comments/:id/edit' do
     redirect_if_not_logged_in
-    @reviewpage = Reviewpage.find_by_id(params[:id])
+    @reviewpage = Reviewpage.find_by_id(params[:reviewpage_id])
     @comment = Comment.find_by_id(params[:id])
     authorize_user_for(@comment)
     if @comment
@@ -31,20 +31,17 @@ class CommentsController < ApplicationController
 
   patch '/comments/:id' do
     redirect_if_not_logged_in
-    #@reviewpage = Reviewpage.find_by_id(params[:reviewpage_id])
-    #redirect "/reviewpages" unless @reviewpage
+    @reviewpage = Reviewpage.find_by_id(params[:reviewpage_id])
     @comment = Comment.find_by_id(params[:id])
     authorize_user_for(@comment)
-    if @comment
+    if @comment && !params["content"].empty?
        @comment.user_id = current_user.id
-       #@comment.reviewpage_id = @reviewpage.id
        @comment.update(content: params[:content])
        flash[:success] = "Comment updated successfully"
-       #redirect "/reviewpages/#{@reviewpage.id}"
        redirect "/reviewpages"
     else
-      #@error = "Unable to save comment due to the following error(s): #{@reviewpage.errors.full_messages.to_sentence}"
-      erb :"reviewpages/edit.html"
+      flash[:error] = "Unable to edit comment - comment field cannot be blank."
+      redirect "/reviewpages"
     end
   end
 

@@ -11,22 +11,45 @@ Specs:
    
    X Include more than one model class (e.g. User, Post, Category)
         
-        I have 3 models: User, Review and Museum
+        I have 3 models: User, Review and Comment
    
    X Include at least one has_many relationship on your User model (e.g. User has_many Posts)
         
-        The User model has many reviews and many museums through reviews.  The Museum model has many reviews and has many users through reviews.  The Review model belongs to a user and belongs to a museum.
+        A User has many reviews and has many comments. 
    
    X Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
         
-        Reviews belong to a user and belong to a museum.
+        Reviews belong to a User. Comments belong to both Users and Reviews.
    
-    Include user accounts with unique login attribute (username or email)
-    Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-    Ensure that users can't modify content created by other users
-    Include user input validations
-    BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-    Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+   X Include user accounts with unique login attribute (username or email)
+
+        I have a username validation setup and the has_secure_password method creates unique passwords.
+
+   X  Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+
+        The User can create reviews, read them all, update their own and delete their own.  The User can 
+        
+        write comments on reviews, read all comments, update their comments and delete their comments.
+
+   X  Ensure that users can't modify content created by other users
+
+         The authorize_user_for(record) helper method ensures that User can only alter reviews or 
+         
+         comments they created.
+
+   X  Include user input validations
+
+          The User is not able to save empty fields on reviews or comments.
+
+   X  BONUS - not required - Display validation failures to user with error message (example form URL           e.g. /posts/new)
+
+          There are flash messages telling the user about errors and redirecting them if there is an 
+          
+          error.
+
+   X  Your README.md includes a short description, install instructions, a contributors guide and a link        to the license for your code
+
+          The README.md has a short description, install instructions, a contributor's guide and license information and link.
     
     Confirm
 

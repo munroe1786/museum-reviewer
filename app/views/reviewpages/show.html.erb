@@ -20,10 +20,11 @@
             <input type="hidden" name="_method" value="delete" />
             <input type="submit" value="Delete Comment" />
         </form>
-        <a href="/reviewpages/<%= @reviewpage.id %>/comments/<%= comment.id %>/edit"><input type="button" value="Edit Comment"></a>
+        <p>
+            <a href="/reviewpages/<%= @reviewpage.id %>/comments/<%= comment.id %>/edit"><input type="button" value="Edit Comment"></a>
+        </p>
     <% end %>
     </p>
-
 </section>
 
 <p>

@@ -58,5 +58,4 @@ class ReviewpagesController < ApplicationController
       flash[:success] = "Review deleted successfully"
       redirect "/reviewpages"
     end
-
 end
