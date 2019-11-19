@@ -42,12 +42,10 @@ class ReviewpagesController < ApplicationController
       authorize_user_for(@reviewpage)
       if @reviewpage && !params[:museum_name].empty? && !params[:location].empty? && !params[:date_visited].empty? && !params[:content].empty?
         @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
-        #@reviewpage.update
         flash[:success] = "Review edited successfully"
         redirect "/reviewpages/#{@reviewpage.id}"
       else
         flash[:error] = "Unable to edit review.  Fields cannot be blank."
-        #erb :"reviewpages/edit.html"
         redirect "/reviewpages"
       end
     end
