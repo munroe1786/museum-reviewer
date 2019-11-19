@@ -40,12 +40,15 @@ class ReviewpagesController < ApplicationController
       @reviewpage = Reviewpage.find_by_id(params[:id])
       redirect "/reviewpages" unless @reviewpage
       authorize_user_for(@reviewpage)
-      if @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+      if @reviewpage && !params[:museum_name].empty? && !params[:location].empty? && !params[:date_visited].empty? && !params[:content].empty?
+        @reviewpage.update(museum_name: params[:museum_name], location: params[:location], date_visited: params[:date_visited], content: params[:content])
+        #@reviewpage.update
         flash[:success] = "Review edited successfully"
         redirect "/reviewpages/#{@reviewpage.id}"
       else
-        @error = "Unable to save review due to the following error(s): #{@reviewpage.errors.full_messages.to_sentence}"
-        erb :"reviewpages/edit.html"
+        flash[:error] = "Unable to edit review.  Fields cannot be blank."
+        #erb :"reviewpages/edit.html"
+        redirect "/reviewpages"
       end
     end
 

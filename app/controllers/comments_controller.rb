@@ -21,8 +21,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
     authorize_user_for(@comment)
     if @comment
-      @comment.user_id = current_user.id
-      @comment
       erb :'comments/edit.html'
     else
       redirect "/reviewpages/#{@reviewpage.id}"
@@ -35,7 +33,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
     authorize_user_for(@comment)
     if @comment && !params["content"].empty?
-       @comment.user_id = current_user.id
        @comment.update(content: params[:content])
        flash[:success] = "Comment updated successfully"
        redirect "/reviewpages"
